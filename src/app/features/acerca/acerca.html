@@ -1,0 +1,178 @@
+<app-hero
+    titulo="Excelencia en"
+    titulo2="Medicina Veterinaria"
+    descripcion="Transformamos el cuidado de tu mascota con tecnología de vanguardia y un trato profundamente humano. Tu mejor amigo merece estar en las mejores manos."
+    imagen="https://www.expomedhub.com/img/blog/veterinario-vet.jpg"
+    imagen1="https://images.unsplash.com/photo-1599443015574-be5fe8a05783?q=80&w=2070&auto=format&fit=crop"
+    imagen2="https://mundovets.com/wp-content/uploads/2021/07/comunicarte-correctamente-ayudara-a-ofecer-una-buena-experiencia-al-cliente-de-tu-clinica-veterinaria-1024x746.jpg"
+    imagen3="https://d2kd1atb170pxv.cloudfront.net/var/site/storage/images/1/9/0/5/255091-1-esl-ES/04de2aaeedc1-experto-urgencias-pequenos-animales.jpg"
+    item1="15+"
+    parrafo1="Años salvando vidas"
+    item2="8k+"
+    parrafo2="Clientes satisfechos"
+    item3="24/7"
+    parrafo3="Urgencias Médicas"
+    boton1="Consulta General"
+    boton2="Vacunación"
+    boton3="Primera revisión"
+></app-hero>
+
+<main class="bg-gray-50 pb-20 font-sans">
+    
+    <section class="relative h-64 md:h-80 flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-500 opacity-95"></div>
+        <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-20" alt="fondo">
+        
+        <div class="relative z-10 text-center px-4 max-w-3xl mx-auto">
+            <span class="text-teal-100 font-bold tracking-widest uppercase text-sm mb-2 block">Nuestra Filosofía</span>
+            <h1 class="text-white text-4xl md:text-5xl font-black uppercase tracking-tight italic mb-4">
+                Más que veterinarios,<br> somos familia
+            </h1>
+            <p class="text-emerald-50 mt-2 text-lg font-light leading-relaxed">
+                Entendemos que no son solo mascotas, son parte vital de tu vida. Por eso dedicamos cada día a estudiar, innovar y cuidar con el corazón.
+            </p>
+        </div>
+    </section>
+
+    <section class="max-w-screen-xl mx-auto mt-16 px-4">
+        
+        <div class="flex items-center gap-4 mb-10">
+            <h2 class="text-3xl font-bold text-emerald-900 whitespace-nowrap">Nuestros Pilares</h2>
+            <div class="h-[2px] w-full bg-gradient-to-r from-emerald-200 to-transparent"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+            @for (item of masInformacion; track item.titulo) {
+                <div class="bg-white border-l-4 border-teal-400 p-8 rounded-r-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-default">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-emerald-50 p-3 rounded-full group-hover:bg-emerald-500 transition-colors duration-300 mr-4">
+                            <span class="text-emerald-600 group-hover:text-white font-bold text-xl w-6 h-6 flex items-center justify-center">{{item.titulo[0]}}</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">{{item.titulo}}</h3>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        {{item.descripcion}}
+                    </p>
+                </div>
+            }
+        </div>
+
+        <div class="flex items-center gap-4 mb-10">
+            <div class="h-[2px] w-full bg-gradient-to-l from-emerald-200 to-transparent"></div>
+            <h2 class="text-3xl font-bold text-emerald-900 whitespace-nowrap">Servicios Especializados</h2>
+            <div class="h-[2px] w-full bg-gradient-to-r from-emerald-200 to-transparent"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex flex-col sm:flex-row bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:border-emerald-200 transition-all duration-300">
+                <div class="sm:w-1/3 bg-emerald-500 flex items-center justify-center p-6 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    <span class="text-white text-5xl transform group-hover:scale-110 transition-transform duration-300">🏥</span>
+                </div>
+                <div class="p-6 sm:w-2/3 flex flex-col justify-center">
+                    <h4 class="text-xl font-bold text-emerald-900 mb-2">Hospitalización 24/7</h4>
+                    <p class="text-gray-500 text-sm">Monitoreo constante con médicos de guardia. Suites climatizadas y confortables para una recuperación sin estrés.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-200 transition-all duration-300">
+                <div class="sm:w-1/3 bg-teal-500 flex items-center justify-center p-6 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    <span class="text-white text-5xl transform group-hover:scale-110 transition-transform duration-300">🔬</span>
+                </div>
+                <div class="p-6 sm:w-2/3 flex flex-col justify-center">
+                    <h4 class="text-xl font-bold text-emerald-900 mb-2">Laboratorio Propio</h4>
+                    <p class="text-gray-500 text-sm">Hemogramas y bioquímicas en 15 minutos. Diagnósticos precisos sin esperas externas para actuar rápido.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:border-rose-200 transition-all duration-300">
+                <div class="sm:w-1/3 bg-rose-500 flex items-center justify-center p-6 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    <span class="text-white text-5xl transform group-hover:scale-110 transition-transform duration-300">🩺</span>
+                </div>
+                <div class="p-6 sm:w-2/3 flex flex-col justify-center">
+                    <h4 class="text-xl font-bold text-emerald-900 mb-2">Quirófano Avanzado</h4>
+                    <p class="text-gray-500 text-sm">Cirugías de tejidos blandos y ortopedia con anestesia inhalatoria y monitoreo multiparamétrico.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-200 transition-all duration-300">
+                <div class="sm:w-1/3 bg-orange-400 flex items-center justify-center p-6 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    <span class="text-white text-5xl transform group-hover:scale-110 transition-transform duration-300">✂️</span>
+                </div>
+                <div class="p-6 sm:w-2/3 flex flex-col justify-center">
+                    <h4 class="text-xl font-bold text-emerald-900 mb-2">Spa & Grooming</h4>
+                    <p class="text-gray-500 text-sm">Baños medicados, cortes de raza y estética. Usamos productos hipoalergénicos de primera calidad.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-24 mb-10 text-center">
+            <span class="text-teal-600 font-bold tracking-wider text-sm uppercase">Talento Humano</span>
+            <h2 class="text-3xl font-black text-gray-800 mt-2">Conoce a nuestros Especialistas</h2>
+            <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Un equipo multidisciplinario apasionado por la salud animal.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1964&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Doctor">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <span class="text-white font-bold">Dr. Mateo Ruiz</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full mb-3">Cirujano</span>
+                    <p class="text-gray-600 text-sm">Especialista en traumatología y ortopedia con más de 12 años de experiencia en casos complejos.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Doctora">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <span class="text-white font-bold">Dra. Ana Solís</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="inline-block px-3 py-1 bg-teal-100 text-teal-700 text-xs font-bold rounded-full mb-3">Medicina Interna</span>
+                    <p class="text-gray-600 text-sm">Apasionada por el diagnóstico clínico y la medicina preventiva. Experta en felinos.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Doctor">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <span class="text-white font-bold">Dr. Carlos Vega</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full mb-3">Exóticos</span>
+                    <p class="text-gray-600 text-sm">Especialista en el cuidado de aves, reptiles y pequeños mamíferos.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="mt-20 bg-emerald-900 py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">¿Tu mascota necesita atención?</h2>
+            <p class="text-emerald-100 text-lg mb-8">
+                No esperes a que sea una emergencia. Agenda un chequeo preventivo hoy mismo y asegura su bienestar.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg">
+                    Agendar Cita Online
+                </button>
+                <button class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-emerald-900 font-bold py-3 px-8 rounded-full transition-all">
+                    Llamar a Urgencias
+                </button>
+            </div>
+        </div>
+    </section>
+
+</main>
