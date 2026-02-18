@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth-service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { subscribe } from 'firebase/data-connect';
 
 @Component({
   selector: 'app-login',
@@ -18,10 +20,19 @@ export class Login {
 
   private servicioAuth = inject(AuthService);
 
+  private router = inject(Router);
+
   iniciarSesion() {
-    this.servicioAuth.login(this.email, this.password);
-    alert('Sesión iniciada');
-  }
+    this.servicioAuth.login(this.email, this.password).subscribe(success => {
+      if (success) {
+      alert('Sesión iniciada');
+      this.router.navigate(['/usuarios']);
+      }else{
+        alert('Error: usuario no autenticado');
+      }
+  });
+}
+
 
   cerrarSesion() {
     this.servicioAuth.logout();

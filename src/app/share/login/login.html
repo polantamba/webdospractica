@@ -1,13 +1,13 @@
-<form class="max-w-sm mx-auto">
+<form (ngSubmit)="iniciarSesion()" class="max-w-sm mx-auto">
     <div class="mb-5">
         <label for="email-alternative" class="block mb-2.5 text-sm font-medium text-heading">Your email</label>
-        <input [(ngModel)]="email"  type="email" id="email-alternative"
+        <input [(ngModel)]="email" name="email" type="email" id="email-alternative"
             class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow placeholder:text-body"
             placeholder="name@flowbite.com" required />
     </div>
     <div class="mb-5">
         <label for="password-alternative" class="block mb-2.5 text-sm font-medium text-heading">Your password</label>
-        <input [(ngModel)]="password" type="password" id="password-alternative"
+        <input [(ngModel)]="password" name="password" type="password" id="password-alternative"
             class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow placeholder:text-body"
             placeholder="••••••••" required />
     </div>
@@ -20,7 +20,7 @@
                     class="text-fg-brand hover:underline">terms and conditions</a>.</p>
         </label>
     </div>
-    <button (click)="iniciarSesion()" type="button"
+    <button type="submit"
         class="text-black bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Iniciar Sesión</button>
     <button (click)="cerrarSesion()" type="button"
         class="text-black bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Cerrar Sesión</button>

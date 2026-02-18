@@ -2,6 +2,7 @@ import { Component, inject, signal, Signal } from '@angular/core';
 import { Usuario } from '../../models/usuario';
 import { UsuarioService } from '../../services/usuario-servicio';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth-service';
 
 
 @Component({
@@ -11,11 +12,13 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './formulario.css',
 })
 export class Formulario {
-editarUsuario(_t35: Usuario) {
-throw new Error('Method not implemented.');
-}
+  editarUsuario(_t35: Usuario) {
+    throw new Error('Method not implemented.');
+  }
 
   private servicioUsuario = inject(UsuarioService);
+
+  public servicioAuth = inject(AuthService);
 
   listaUsuarios = signal<Usuario[]>([]);
 
@@ -24,7 +27,9 @@ throw new Error('Method not implemented.');
   nuevoUsuario: Usuario = {
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+    password: '',
+    rol: 'EMPLEADO'
   };
 
   ngOnInit() {
@@ -39,19 +44,19 @@ throw new Error('Method not implemented.');
   }
 
   guardarUsuario() {
-    if(this.editando && this.nuevoUsuario.id) {
+    if (this.editando && this.nuevoUsuario.id) {
       this.servicioUsuario.putUsuario(this.nuevoUsuario.id, this.nuevoUsuario).
-      subscribe(() => {
-        this.obtenerUsuarios();
-        this.resetear();
-      });
-      }
-      else{
-        this.servicioUsuario.postUsuario(this.nuevoUsuario).subscribe(() => {
+        subscribe(() => {
           this.obtenerUsuarios();
           this.resetear();
         });
-      }
+    }
+    else {
+      this.servicioUsuario.postUsuario(this.nuevoUsuario).subscribe(() => {
+        this.obtenerUsuarios();
+        this.resetear();
+      });
+    }
   }
 
   //metodo para eliminar usuario
@@ -59,7 +64,7 @@ throw new Error('Method not implemented.');
     if (confirm('¿Estás seguro de eliminar este usuario?')) {
       this.servicioUsuario.deleteUsuario(id).subscribe(() => {
         this.obtenerUsuarios();
-      //  this.listaUsuarios.set(this.listaUsuarios().filter(u => u.id !== id));
+        //  this.listaUsuarios.set(this.listaUsuarios().filter(u => u.id !== id));
       });
     }
   }
@@ -70,14 +75,17 @@ throw new Error('Method not implemented.');
     this.nuevoUsuario = { ...user };
   }
 
-  resetear(){
+  resetear() {
     this.editando = false;
     this.nuevoUsuario = {
       name: '',
       email: '',
-      phone: ''
+      phone: '',
+      password: '',
+      rol: 'EMPLEADO'
+
     };
   }
-  
+
 
 }
