@@ -27,6 +27,7 @@ export class Hero {
   @Input() boton2!: string;
   @Input() precio3!: string;
   @Input() boton3!: string;
+  @Input() colorFondo!: string;
 
 
 }
