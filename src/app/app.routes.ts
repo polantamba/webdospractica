@@ -18,6 +18,7 @@ export const routes: Routes = [
     {path: 'usuarios', component: Usuarios ,canActivate: [authGuard]},
     {path: 'cuenta', component: FormularioCuenta},
     {path: 'login', component: Login},
+    {path: 'cerrar-sesion', component: Home},
     //3. Redireccion si el usuario escribe una url que no existe
     //{path:'', component:Pagina404}
 ];

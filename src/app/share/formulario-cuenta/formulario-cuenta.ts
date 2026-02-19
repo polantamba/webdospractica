@@ -15,13 +15,12 @@
     private fb = inject(FormBuilder);
 
     reglaEmail = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
-    reglaPassword = '^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$';
+    //reglaPassword = '^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$';
 
     formCuenta = this.fb.group(
       {
         email: ['', [Validators.required, Validators.pattern(this.reglaEmail)]],
-        password: ['', [Validators.required, Validators.pattern(this.reglaPassword)]],
-        repeatPassword: ['', [Validators.required]]
+        comentario: ['', [Validators.required]]
       },
       {validators: this.validarClaves},
     );
@@ -46,11 +45,33 @@
     registrar() {
       
     if (this.formCuenta.valid) {
-      console.log('Datos del formulario:', this.formCuenta.value);
+
+      const contenido = new URLSearchParams
+      contenido.set('form-name', 'contacto');
+      contenido.set('email', this.formCuenta.value.email ?? '');
+      contenido.set('comentario', this.formCuenta.value.comentario ?? '');
+
+      fetch('/',{
+        method: 'POST',
+        //indicar que los datos que se van a enviar estan codificados como una url no como un json
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        //convertir todo el objeto a una cadena de texto lista para enviarse
+        body: contenido.toString()
+          
+      })
+        .then(()=>{
+          alert("Formulario enviado");
+          this.formCuenta.reset();
+        })
+        .catch((error)=>
+          console.log("Error al enviar el formulario", error));
+        }
+        
+      console.log('La cuenta creada es ${this.formCuenta}.value');
       alert('¡Registro exitoso! Bienvenido.');
 
     }
   }
-}
+
 
   
