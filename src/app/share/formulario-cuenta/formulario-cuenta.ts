@@ -62,14 +62,11 @@
         .then(()=>{
           alert("Formulario enviado");
           this.formCuenta.reset();
+          
         })
         .catch((error)=>
-          console.log("Error al enviar el formulario", error));
-        }
-        
-      console.log('La cuenta creada es ${this.formCuenta}.value');
-      alert('¡Registro exitoso! Bienvenido.');
-
+          console.log("Error al enviar el formulario"+ error));
+        }   
     }
   }
 
